@@ -2,17 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TableHeader from './table-header.jsx';
 import TableRow from './table-row.jsx';
+import styles from './table.css';
 
 export default function Table({ bookings, setBookingFormState }) { 
-  const row = booking => (
-    <TableRow
-      key={`${booking.lastName} ${booking.time}`}
-      setBookingFormState={setBookingFormState}
-      {...booking} />
-  );
+  const row = booking => {
+    const { firstName, lastName, time } = booking;
+    const key = `${firstName} ${lastName} ${time}`;
+
+    return (
+      <TableRow
+        key={key}
+        setBookingFormState={setBookingFormState}
+        {...booking} />
+    );
+  };
 
   return (
-    <table>
+    <table
+      className={styles.table}>
       <TableHeader />
       <tbody>
         {bookings.map(row)}

@@ -15,21 +15,25 @@ export default function Layout({ formData, reservations, setBookingFormState, se
     );
   }
 
-  const title = `Booking for ${date}`;
+  const tableTitle = `Booking for ${date}`;
+  const formTitle = 'Booking update';
   
   return (
     <div className={styles.container}>
       {/* TODO include, or replace heading with, logo */}
-      <Heading title={title} />
+      <Heading title={tableTitle} />
       <Table
         bookings={bookings}
         setBookingFormState={setBookingFormState} />
-      {formData && <FormContainer
-        date={date}
-        exitForm={() => { setBookingFormState(null); }}
-        reservations={reservations}
-        setReservations={setReservations}
-        {...formData} />}
+      {formData && <div>
+        <Heading title={formTitle} />
+        <FormContainer
+          date={date}
+          exitForm={() => { setBookingFormState(null); }}
+          reservations={reservations}
+          setReservations={setReservations}
+          {...formData} />
+        </div>}
     </div>
   );
 }

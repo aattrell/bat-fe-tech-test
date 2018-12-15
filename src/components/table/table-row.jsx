@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './table-row.css';
 
 export default class TableRow extends Component {
   handleClick = () => {
@@ -8,21 +9,26 @@ export default class TableRow extends Component {
   }
 
   render() {
-    const { firstName, lastName, partySize, seated, time, title } = this.props;
+    const { cancelled, firstName, lastName, partySize, seated, time, title } = this.props;
 
     return (
       <tr
+        className={cancelled ? styles.cancelled : null}
         onClick={this.handleClick}>
-        <td>
+        <td
+          className={styles.tableCell}>
           {title} {firstName} {lastName}
         </td>
-        <td>
+        <td
+          className={styles.tableCell}>
           {time}
         </td>
-        <td>
+        <td
+          className={styles.tableCell}>
           {partySize}
         </td>
-        <td>
+        <td
+          className={styles.tableCell}>
           {seated ? 'Yes' : 'No'}
         </td>
       </tr>
@@ -31,6 +37,7 @@ export default class TableRow extends Component {
 }
 
 TableRow.PropTypes = {
+  cancelled: PropTypes.bool.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   notes: PropTypes.string.isRequired,

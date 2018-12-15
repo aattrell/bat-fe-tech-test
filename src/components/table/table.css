@@ -1,0 +1,9 @@
+.table {
+    border-collapse: collapse;
+}
+
+.table tr:nth-child(even) td {
+    /* This is to make it easier to scan along a row
+    on the table when there is lots of data */
+    background-color: #FDFEFE;
+}

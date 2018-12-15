@@ -1,0 +1,11 @@
+.tableCell {
+    border: solid 1px #000;
+    padding: 10px;
+}
+
+.cancelled {
+    /* If the line thickness is a problem,
+    consider using a background image with a linear gradient,
+    this could improve the visibility */
+    text-decoration: line-through;
+}

@@ -1,3 +1,11 @@
 .tableHeader {
-  color: lightslategray;
+  /* Slightly lighter than the wireframe
+  to improve color contrast for accessibility */
+  background-color: #F2F3F4;
+  text-align: left;
+}
+
+.tableHeaderCell {
+  border: solid 1px #000;
+  padding: 10px;
 }
