@@ -31,6 +31,12 @@ export default class App extends Component {
         }
       )
   }
+
+  setReservations = (reservations) => {
+    // To persist the state (incase the user refreshes / reloads),
+    // we would need to do a POST request here instead of updating state
+    this.setState({ reservations });
+  }
   
   render() {
     const { error, isLoaded, reservations } = this.state;
@@ -40,7 +46,11 @@ export default class App extends Component {
     } else {
       return (
         <div>
-          {isLoaded ? <LayoutContainer reservations={reservations} /> : 'Loading...'}
+          {isLoaded ?
+            <LayoutContainer
+              reservations={reservations}
+              setReservations={this.setReservations} />
+            : 'Loading...'}
         </div>
       );
     }

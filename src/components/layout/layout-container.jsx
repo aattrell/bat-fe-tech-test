@@ -15,17 +15,19 @@ export default class LayoutContainer extends Component {
   };
 
   render() {
-    const { formData } = this.state;
+    const { formData, setReservations } = this.state;
 
     return (
       <Layout
         formData={formData}
         setBookingFormState={this.setBookingFormState}
+        setReservations={setReservations}
         {...this.props} />
     );
   }
 }
 
 LayoutContainer.PropTypes = {
-  reservations: PropTypes.array.isRequired
+  reservations: PropTypes.array.isRequired,
+  setReservations: PropTypes.func.isRequired
 };

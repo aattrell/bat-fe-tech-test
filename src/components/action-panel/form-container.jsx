@@ -37,13 +37,37 @@ export default class FormContainer extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // TO DO: we need to update the json so the state is persisted
+
+    const { date, firstName, lastName, reservations, setReservations, time } = this.props;
+    const { cancelled, seated } = this.state;
+    const today = reservations.filter(reservation => {
+      return reservation.date === date;
+    })[0].bookings;
+    const todayIndex = reservations.findIndex(reservation => reservation.date === date);
+    const bookingIndex = today.findIndex(booking => booking.firstName === firstName && booking.lastName === lastName && booking.time === time);
+    const updatedObj = { ...today[bookingIndex], cancelled, seated };
+    const updatedReservations = [
+      ...reservations.slice(0, todayIndex),
+      {
+        date: date,
+        bookings: [
+          ...today.slice(0, bookingIndex),
+          updatedObj,
+          ...today.slice(bookingIndex + 1)
+        ]
+      },
+      ...reservations.slice(todayIndex + 1)
+    ];
+
+    setReservations(updatedReservations);
+
     this.props.exitForm();
   }
   
   render() {
     const { cancelled, notes, seated } = this.state;
     // TO DO: adding a cross to allow exit without form submission
+    // onClick would be the exitForm function
 
     return (
       <form
@@ -63,11 +87,14 @@ export default class FormContainer extends Component {
 }
 
 FormContainer.PropTypes = {
+  date: PropTypes.string.isRequired,
   exitForm: PropTypes.func.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   notes: PropTypes.string.isRequired,
   partySize: PropTypes.number.isRequired,
+  reservations: PropTypes.array.isRequired,
+  setReservations: PropTypes.func.isRequired,
   time: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };

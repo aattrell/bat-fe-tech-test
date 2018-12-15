@@ -6,7 +6,7 @@ import FormContainer from '../action-panel/form-container.jsx';
 import todaysData from '../../utils/todays-data.js';
 import styles from './layout.css';
 
-export default function Layout({ formData, reservations, setBookingFormState }) {
+export default function Layout({ formData, reservations, setBookingFormState, setReservations }) {
   const { date, bookings } = todaysData(reservations);
 
   if (!date || !bookings.length) {
@@ -24,9 +24,12 @@ export default function Layout({ formData, reservations, setBookingFormState }) 
       <Table
         bookings={bookings}
         setBookingFormState={setBookingFormState} />
-      <FormContainer
+      {formData && <FormContainer
+        date={date}
         exitForm={() => { setBookingFormState(null); }}
-        {...formData} />
+        reservations={reservations}
+        setReservations={setReservations}
+        {...formData} />}
     </div>
   );
 }
@@ -34,5 +37,6 @@ export default function Layout({ formData, reservations, setBookingFormState }) 
 Layout.PropTypes = {
   formData: PropTypes.object.isRequired,
   reservations: PropTypes.array.isRequired,
-  setBookingFormState: PropTypes.func.isRequired
+  setBookingFormState: PropTypes.func.isRequired,
+  setReservations: PropTypes.func.isRequired
 };
