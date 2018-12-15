@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Summary from './summary.jsx';
 import Seated from './seated.jsx';
 import Comments from './comments.jsx';
+import styles from './form-container.css';
 
 export default class FormContainer extends Component {
   constructor() {
@@ -71,6 +72,7 @@ export default class FormContainer extends Component {
 
     return (
       <form
+        className={styles.formContainer}
         onSubmit={this.handleSubmit}>
         <Summary {...this.props} />
         <Seated

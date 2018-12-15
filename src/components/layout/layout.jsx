@@ -21,11 +21,13 @@ export default function Layout({ formData, reservations, setBookingFormState, se
   return (
     <div className={styles.container}>
       {/* TODO include, or replace heading with, logo */}
-      <Heading title={tableTitle} />
-      <Table
-        bookings={bookings}
-        setBookingFormState={setBookingFormState} />
-      {formData && <div>
+      <div className={formData ? styles.hiddenTable : styles.tableSection}>
+        <Heading title={tableTitle} />
+        <Table
+          bookings={bookings}
+          setBookingFormState={setBookingFormState} />
+      </div>
+      {formData && <div className={styles.formSection}>
         <Heading title={formTitle} />
         <FormContainer
           date={date}

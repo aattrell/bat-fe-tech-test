@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 export default function Summary({ firstName, lastName, partySize, time, title }) { 
   return (
     <div>
-      <h2>
-        Booking update
-      </h2>
       <h3>
         Name
       </h3>
