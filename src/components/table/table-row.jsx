@@ -8,6 +8,16 @@ export default class TableRow extends Component {
     setBookingFormState(bookingData);
   }
 
+  handleKeyDown = (event) => {
+    const enterKeyPress = event.key === 'Enter';
+    const spaceBarPress = event.key === 'Space' || event.key === ' ';
+
+    if (enterKeyPress || spaceBarPress) {
+      const { setBookingFormState, ...bookingData } = this.props;
+      setBookingFormState(bookingData);
+    }
+  }
+
   render() {
     const { cancelled, firstName, lastName, partySize, seated, time, title } = this.props;
     const cancelledSyles = cancelled ? styles.cancelled : null;
@@ -15,7 +25,10 @@ export default class TableRow extends Component {
     return (
       <tr
         className={`${styles.row} ${cancelledSyles}`}
-        onClick={this.handleClick}>
+        onClick={this.handleClick}
+        onKeyDown={this.handleKeyDown}
+        role="button"
+        tabIndex="0">
         <td
           className={styles.tableCell}>
           {title} {firstName} {lastName}

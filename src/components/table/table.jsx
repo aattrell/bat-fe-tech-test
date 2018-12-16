@@ -20,6 +20,11 @@ export default function Table({ bookings, setBookingFormState }) {
   return (
     <table
       className={styles.table}>
+      <caption
+        className={styles.screenReadersOnly}>
+        A table to allow you to see and update the status of 
+        each of your upcoming reservations
+      </caption>
       <TableHeader />
       <tbody>
         {bookings.map(row)}

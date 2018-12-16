@@ -107,7 +107,6 @@ Further work:
 - Add the Bookatable SVG logo at the top of the page
 - Make the table header sticky, so a user can clearly see the column headings after scrolling down the page
 - Add animations to improve transitions such as opening or closing the form, so this is clearer to the user
-- If the form is very long, add a wrapper so you can scroll within the fixed container on mobile
 
 Review:
 - Cross browser and cross device testing using Browserstack, Saucelabs or physical devices

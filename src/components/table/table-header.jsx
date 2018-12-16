@@ -6,7 +6,8 @@ export default function TableHeader({ headings }) {
   const renderHeading = (heading) => (
     <th
       className={styles.tableHeaderCell}
-      key={heading}>
+      key={heading}
+      scope="col">
       {heading}
     </th>
   );

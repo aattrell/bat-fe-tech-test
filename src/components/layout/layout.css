@@ -9,17 +9,10 @@
 }
 
 .hiddenTable {
-  height: calc(100vh - 20px);
-  overflow: hidden;
+  display: none;
 }
 
 .formSection {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
   padding: 0 15px;
   background-color: #fff;
 }
@@ -31,14 +24,12 @@
   }
 
   .hiddenTable {
+    display: block;
     width: calc(50% - 100px);
     padding: 0 50px;
-    height: auto;
-    overflow: auto;
   }
   
   .formSection {
-    position: static;
     width: calc(50% - 100px);
     padding: 0 50px;
   }
