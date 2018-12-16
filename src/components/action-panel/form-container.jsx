@@ -66,21 +66,28 @@ export default class FormContainer extends Component {
   }
   
   render() {
-    const { cancelled, notes, seated } = this.state;
-    // TO DO: adding a cross to allow exit without form submission
-    // onClick would be the exitForm function
+    const { cancelled, seated } = this.state;
+    const { exitForm, notes } = this.props;
 
     return (
       <form
         className={styles.formContainer}
         onSubmit={this.handleSubmit}>
+        <button
+          className={styles.exitButton}
+          onClick={exitForm}
+          type="button">
+          &times;
+        </button>
         <Summary {...this.props} />
         <Seated
           cancelled={cancelled}
           onChange={this.handleChange}
           seated={seated} />
         <Comments notes={notes} />
-        <button type="submit">
+        <button
+          className={styles.submitButton}
+          type="submit">
           Submit
         </button>
       </form>

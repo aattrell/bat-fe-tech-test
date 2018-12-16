@@ -3,6 +3,7 @@
   to improve color contrast for accessibility */
   background-color: #F2F3F4;
   text-align: left;
+  font-size: 18px;
 }
 
 .tableHeaderCell {

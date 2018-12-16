@@ -3,6 +3,14 @@
     padding: 10px;
 }
 
+.row:hover {
+    cursor: pointer;
+}
+
+.row:hover .tableCell {
+    background-color: #AED6F1;
+}
+
 .cancelled {
     /* If the line thickness is a problem,
     consider using a background image with a linear gradient,

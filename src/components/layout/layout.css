@@ -26,12 +26,12 @@
 
 @media only screen and (min-width: 768px) {
   .tableSection {
-    width: 50%;
+    width: calc(50% - 100px);
     padding: 0 50px;
   }
 
   .hiddenTable {
-    width: 50%;
+    width: calc(50% - 100px);
     padding: 0 50px;
     height: auto;
     overflow: auto;
@@ -39,7 +39,7 @@
   
   .formSection {
     position: static;
-    width: 50%;
+    width: calc(50% - 100px);
     padding: 0 50px;
   }
 }

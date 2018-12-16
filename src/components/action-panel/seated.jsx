@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './seated.css';
 
 export default function Seated({ cancelled, onChange, seated }) {
   return (
     <div>
-      <p>Seated:</p>
-      <ul>
+      <h3 className={styles.heading}>
+        Seated:
+      </h3>
+      <ul className={styles.list}>
         <li>
           <label>
             <input
               type="radio"
               value="seated"
               checked={seated && !cancelled}
-              onChange={onChange}
-            />
+              onChange={onChange} />
             Yes
           </label>
         </li>
@@ -23,8 +25,7 @@ export default function Seated({ cancelled, onChange, seated }) {
               type="radio"
               value={false}
               checked={!seated && !cancelled}
-              onChange={onChange}
-            />
+              onChange={onChange} />
             No
           </label>
         </li>
@@ -34,8 +35,7 @@ export default function Seated({ cancelled, onChange, seated }) {
               type="radio"
               value="cancelled"
               checked={cancelled}
-              onChange={onChange}
-            />
+              onChange={onChange} />
             Cancelled
           </label>
         </li>

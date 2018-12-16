@@ -1,0 +1,30 @@
+.list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+.heading {
+    padding: 15px 0 0;
+    margin: 0;
+    font-size: 18px;
+}
+
+.list li {
+    padding: 8px 0 0;
+    margin: 0;
+}
+
+.list input {
+    width: 2em;
+}
+
+.list li label:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.list li input:hover {
+    cursor: pointer;
+}

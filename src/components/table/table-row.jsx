@@ -10,10 +10,11 @@ export default class TableRow extends Component {
 
   render() {
     const { cancelled, firstName, lastName, partySize, seated, time, title } = this.props;
-
+    const cancelledSyles = cancelled ? styles.cancelled : null;
+    
     return (
       <tr
-        className={cancelled ? styles.cancelled : null}
+        className={`${styles.row} ${cancelledSyles}`}
         onClick={this.handleClick}>
         <td
           className={styles.tableCell}>

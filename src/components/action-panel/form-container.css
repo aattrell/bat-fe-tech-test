@@ -1,6 +1,43 @@
+.exitButton {
+    background-color: #fff;
+    color: #000;
+    border: 0;
+    padding: 0;
+    font-size: 30px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.exitButton:hover {
+    color: #C0392B;
+    cursor: pointer;
+}
+
+.submitButton {
+    font-size: 16px;
+    background-color: #EBF5FB;
+    border-radius: 4px;
+    padding: 5px 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.submitButton:hover {
+    background-color: #AED6F1;
+    box-shadow: 2px 2px 2px 0 gray;
+    cursor: pointer;
+}
+
 @media only screen and (min-width: 768px) {
     .formContainer {
         border: solid 2px #000;
         padding: 10px 40px 30px;
+        position: relative;
+    }
+
+    .exitButton {
+        top: 10px;
+        right: 20px;
     }
 }
