@@ -56,9 +56,7 @@ npm run build
 
 I installed babel-plugin-react-css-modules to make the styles easier to manage. As this scopes them within their components, this prevents style clash, and puts less focus on creating unique classnames for every single component, speeding up development time.
 
-I was intending to install autoprefixer (or something similar) to automatically add vendor prefixes. This means you do not have to look up which CSS properties require vendor prefixes, and which ones have the default supported across all browsers already. This speeds up development time, and reduces the likelihood of differences across browsers due to human error.
-
-I would usually prefer to use postcss-scss (or similar) as well, but as I was tight on time and it's a small project with relatively simple css requirements, I decided against it.
+I was intending to install something similar to autoprefixer to automatically add vendor prefixes. This means you do not have to look up which CSS properties require vendor prefixes, and which ones have the default supported across all browsers already. This speeds up development time, and reduces the likelihood of differences across browsers due to human error. However, autoprefixer and post-css loader are not compatible with babel plugin react css modules. I ran out of time to install an alternative.
 
 #### Fetch request (loading, errors)
 
@@ -86,7 +84,7 @@ To fix this we would need to find a way to update the JSON file or use local sto
 
 #### Accessibility
 
-I have tried to think about basic accessibility requirements as I go along. I have taken care to add hover states, check keyboard navigation, allow outlines for focus states, check color contrast of fonts against backgrounds, improve scannability of the table by colouring alternate rows, and defining roles on buttons.
+I have tried to think about basic accessibility requirements as I go along. I have taken care to add hover states, check keyboard navigation, allow outlines for focus states, check color contrast of fonts against backgrounds, improve scannability of the table by colouring alternate rows, defining roles on buttons etc.
 
 I have not had time to check this on a screen reader, and review if all content is correctly picked up. This would be a good improvement.
 
@@ -97,18 +95,24 @@ Note: if you are checking keyboard navigation, you may have to alter your defaul
 (Unfortunately I was not able to achieve these goals in the time available.)
 
 Setup:
-- Install an autoprefixer for vendor prefixes
-- Install mocha, chai, sinon and enzyme
-- Generate a code coverage report e.g. using istanbul
-- Configure linting settings for the project
+- Install something similar to autoprefixer to add vendor prefixes to CSS (or manually add the vendor prefixes to the existing code)
+- Install mocha, chai, sinon and enzyme for writing front end unit tests
+- Install istanbul for generating code coverage reports
 
 Further work:
 - Add unit tests (ideally I would have followed a TDD approach, but I prioritised actually completing the project)
 - Add the Bookatable SVG logo at the top of the page
+- Change the format of the date in the heading to match the wireframe
+- Improve the app's ability to deal with null or partially null data
+- Add a schema file for the expected array data structure and use that in proptypes
 - Make the table header sticky, so a user can clearly see the column headings after scrolling down the page
 - Add animations to improve transitions such as opening or closing the form, so this is clearer to the user
+- Add a loading spinner and improve error handling for the fetch request
 
 Review:
 - Cross browser and cross device testing using Browserstack, Saucelabs or physical devices
 - Test with a screen reader
+- Run a test coverage report
 
+Note:
+- On released "live" projects, it can also be useful to use something like lighthouse to periodically review accessibility, performance and SEO practices, but I won't be doing that for this project
